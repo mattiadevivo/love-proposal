@@ -14,14 +14,18 @@ function App() {
       },
       body: JSON.stringify({
         text:
-          "Alice answered: " + decision + ` ${decision == "yes" ? "👍" : "👎"}`,
+          `${import.meta.env.VITE_GIRL_NAME} answered: ` +
+          decision +
+          ` ${decision == "yes" ? "👍" : "👎"}`,
       }),
     });
   };
 
   return (
     <div className="App">
-      <h1>Alice, do you want to be my girlfriend?</h1>
+      <h1>
+        {import.meta.env.VITE_GIRL_NAME}, do you want to be my girlfriend?
+      </h1>
       <LoveButtons sendDecision={sendDecision} />
     </div>
   );
