@@ -1,0 +1,16 @@
+.App {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #ff6b6b;
+}
+
