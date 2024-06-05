@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.introduction {
+  color: gray;
+}
+
 h1 {
   color: #ff6b6b;
 }
