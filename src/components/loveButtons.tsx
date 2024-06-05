@@ -34,6 +34,7 @@ const LoveButtons = ({ sendDecision }: Props) => {
         <button
           className="love-button"
           onClick={async () => {
+            if (showAnimation) return;
             setDecision("yes");
             setShowAnimation(true);
             await sendDecision("yes");
@@ -44,6 +45,7 @@ const LoveButtons = ({ sendDecision }: Props) => {
         <button
           className="love-button"
           onClick={async () => {
+            if (showAnimation) return;
             setDecision("no");
             setShowAnimation(true);
             await sendDecision("no");

@@ -4,8 +4,7 @@ import LoveButtons from "./components/loveButtons";
 
 function App() {
   const sendDecision = async (decision: "yes" | "no") => {
-    const slackWebHookUrl =
-      "/api/slack/services/T0H12A4LU/B076N2U1UDS/BoaiAIKlbeVDKuUxhRFEIGfk";
+    const slackWebHookUrl = import.meta.env.VITE_SLACK_WEBHOOK_URL;
     await fetch(slackWebHookUrl, {
       method: "POST",
       headers: {
@@ -16,7 +15,11 @@ function App() {
         text:
           `${import.meta.env.VITE_GIRL_NAME} answered: ` +
           decision +
-          ` ${decision == "yes" ? "👍" : "👎"}`,
+          ` ${
+            decision == "yes"
+              ? "👍! Congrats, you're officially fiancés"
+              : "👎... Probably not the right time for you"
+          }`,
       }),
     });
   };
@@ -38,6 +41,12 @@ function App() {
         {import.meta.env.VITE_GIRL_NAME}, do you want to be my girlfriend?
       </h1>
       <LoveButtons sendDecision={sendDecision} />
+      <footer style={{ marginTop: "auto" }}>
+        Made with ❤️ by{" "}
+        <a href="https://mattiadevivo.dev" target="_blank">
+          Mattia De Vivo
+        </a>
+      </footer>
     </div>
   );
 }
