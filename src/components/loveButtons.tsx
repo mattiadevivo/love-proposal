@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./loveButtons.css";
 import Lottie, { LottieRefCurrentProps, LottieOptions } from "lottie-react";
 import yesAnimation from "../assets/yes-animation.json";
