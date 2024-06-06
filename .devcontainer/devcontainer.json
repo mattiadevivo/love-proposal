@@ -19,7 +19,8 @@
         "redhat.vscode-yaml",
         "dbaeumer.vscode-eslint",
         "ms-azuretools.vscode-docker",
-        "Codeium.codeium"
+        "Codeium.codeium",
+        "github.vscode-github-actions"
       ]
     }
   }

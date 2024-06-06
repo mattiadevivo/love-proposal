@@ -26,6 +26,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
+        env:
+          VITE_GIRL_NAME: ${{ vars.VITE_GIRL_NAME }}
+          VITE_SLACK_WEBHOOK_URL: ${{ vars.VITE_SLACK_WEBHOOK_URL }}
         run: pnpm build
       - name: Setup Pages
         uses: actions/configure-pages@v4
