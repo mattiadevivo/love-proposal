@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "firebase",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "containerEnv": {
+    "GIT_EDITOR": "code --wait"
+  },
+  "forwardPorts": [4500, 9150, 9099, 5001, 9000, 8085, 8080, 4400, 9099, 9299],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Orta.vscode-jest",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "Codeium.codeium",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
+}
