@@ -44,6 +44,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         env:
+          VITE_MESSAGE: ${{ vars.VITE_MESSAGE }}
           VITE_GIRL_NAME: ${{ vars.VITE_GIRL_NAME }}
           VITE_SLACK_WEBHOOK_URL: ${{ vars.VITE_SLACK_WEBHOOK_URL }}
         run: pnpm build
