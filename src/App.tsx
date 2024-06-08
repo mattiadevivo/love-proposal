@@ -2,14 +2,16 @@ import "./App.css";
 import LoveButtons from "./components/loveButtons";
 
 function App() {
+  const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+
   const sendDecision = async (decision: "yes" | "no") => {
-    const slackWebHookUrl = import.meta.env.VITE_SLACK_WEBHOOK_URL;
-    await fetch(slackWebHookUrl, {
+    await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
         text:
           `${import.meta.env.VITE_GIRL_NAME} answered: ` +
           decision +

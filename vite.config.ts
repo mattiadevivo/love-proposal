@@ -6,13 +6,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy: {
-      "/api/slack": {
-        target: "https://hooks.slack.com",
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api\/slack/, ""),
-      },
-    },
   },
 });
