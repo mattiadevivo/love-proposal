@@ -1,29 +1,30 @@
 import "./App.css";
 import LoveButtons from "./components/loveButtons";
 
+const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+const sendDecision = async (decision: "yes" | "no") => {
+  await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
+      text:
+        `${import.meta.env.VITE_GIRL_NAME} answered: ` +
+        decision +
+        ` ${
+          decision == "yes"
+            ? "👍! Congrats, you're officially fiancés"
+            : "👎... Probably not the right time for you"
+        }`,
+    }),
+  });
+};
+
+export type SendDecision = typeof sendDecision;
+
 function App() {
-  const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-
-  const sendDecision = async (decision: "yes" | "no") => {
-    await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
-        text:
-          `${import.meta.env.VITE_GIRL_NAME} answered: ` +
-          decision +
-          ` ${
-            decision == "yes"
-              ? "👍! Congrats, you're officially fiancés"
-              : "👎... Probably not the right time for you"
-          }`,
-      }),
-    });
-  };
-
   return (
     <div className="App">
       <p className="introduction">{import.meta.env.VITE_MESSAGE}</p>

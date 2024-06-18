@@ -3,9 +3,10 @@ import "./loveButtons.css";
 import Lottie, { LottieRefCurrentProps, LottieOptions } from "lottie-react";
 import yesAnimation from "../assets/yes-animation.json";
 import noAnimation from "../assets/no-animation.json";
+import type { SendDecision } from "../App";
 
 type Props = {
-  sendDecision: (decision: "yes" | "no") => Promise<void>;
+  sendDecision: SendDecision;
 };
 
 const LoveButtons = ({ sendDecision }: Props) => {
